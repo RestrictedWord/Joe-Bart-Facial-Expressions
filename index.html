@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe Bart Face Expressions</title>
+    <link rel="shortcut icon"
+        href="https://yt3.googleusercontent.com/0xhaIMs1vajime_rQtgxv1dhugOuVBgXfdsSsvV2tMAO7GOvolfeuZ_TX5RETnBha287nlHL=s800-c-k-c0x00ffffff-no-rj"
+        type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Joe Bart Face Expressions <strong>(WIP)</strong></h1>
+        <p>This data is AI-generated. If you notice any inaccuracies, please report them. :)</p>
+        <span>I'll update when I feel like it.</span>
+
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search by face ID, expression, or feature..." />
+            <button id="reportBtn">Report Incorrect Data</button>
+        </div>
+        <img src="https://yt3.googleusercontent.com/8vsKtRillaQeMF-8SlC6ts0z0qs2LUyHX_-qAMKATlTQWmH3sHL7-ErnQk3s49mXFN6MPsQC1g=w2120-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj"
+            alt="joebart_banner">
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Face ID</th>
+                <th>Expression</th>
+                <th>Description</th>
+                <th>Features</th>
+                <th>Cutout</th>
+                <th>Source Videos</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeImage">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Cutout Image">
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <span class="close" id="closeVideo">&times;</span>
+        <div class="modal-content" style="display:flex;flex-direction:column;align-items:center;">
+            <video id="modalVideo" controls></video>
+            <div id="videoThumbnails" style="display:flex;gap:5px;margin-top:10px;overflow-x:auto;"></div>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeReport">&times;</span>
+            <h2>Report Incorrect Face Data</h2>
+            <img id="reportCutout" src="" alt="Face Cutout" />
+            <form id="reportForm">
+                <label for="faceId">Face ID:</label>
+                <input list="faceIds" id="faceId" placeholder="Type to search..." required>
+                <datalist id="faceIds"></datalist>
+
+                <label for="issueType">Issue Type:</label>
+                <select id="issueType" required>
+                    <option value="">Select issue type...</option>
+                    <option value="Wrong Expression">Wrong Expression</option>
+                    <option value="Wrong Features">Wrong Features</option>
+                    <option value="Image Missing">Image Missing</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="comments">Additional Comments:</label>
+                <textarea id="comments" rows="4"></textarea>
+
+                <button type="submit">Submit Report</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function getYouTubeThumbnail(url) {
+            const match = url.match(/(?:v=|\/)([a-zA-Z0-9_-]{11})/);
+            return match ? { id: match[1], thumb: `https://img.youtube.com/vi/${match[1]}/maxresdefault.jpg` } : null;
+        }
+
+        async function loadData() {
+            const res = await fetch('./data/expressions.json');
+            const data = await res.json();
+            window.facesData = data.faces;
+
+            const expressionsMap = {};
+            data.expressions.forEach(expr => expressionsMap[expr.id] = expr);
+
+            const tableBody = document.getElementById('tableBody');
+            const datalist = document.getElementById('faceIds');
+            const tableFragment = document.createDocumentFragment();
+            const datalistFragment = document.createDocumentFragment();
+
+            data.faces.forEach(face => {
+                const expr = expressionsMap[face.expression_id] || {};
+                const tr = document.createElement('tr');
+                const cutout = face.images.find(img => img.type === 'cutout')?.path || '';
+
+                tr.innerHTML = `
+            <td>${face.id}</td>
+            <td>${expr.label || face.expression_id}</td>
+            <td>${expr.description || ''}</td>
+            <td>${Object.entries(face.features).map(([k, v]) => `<strong>${k}:</strong> ${v}`).join('<br>')}</td>
+            <td>${cutout ? `<img src="${cutout}" class="cutout">` : ''}</td>
+            <td><div class="video-carousel"></div></td>
+        `;
+
+                const carousel = tr.querySelector('.video-carousel');
+
+                face.source_videos.forEach((url, index) => {
+                    const yt = getYouTubeThumbnail(url);
+                    if (!yt) return;
+
+                    if (index === 0) {
+                        const img = document.createElement('img');
+                        img.src = yt.thumb;
+                        img.alt = yt.id;
+                        img.addEventListener('click', e => {
+                            e.stopPropagation();
+                            openVideoGallery(face.source_videos, url);
+                        });
+
+                        if (face.source_videos.length > 1) {
+                            const wrapper = document.createElement('div');
+                            wrapper.classList.add('video-wrapper');
+                            const moreBadge = document.createElement('div');
+                            moreBadge.classList.add('video-badge');
+                            moreBadge.textContent = `+${face.source_videos.length - 1} more`;
+                            moreBadge.addEventListener('click', e => {
+                                e.stopPropagation();
+                                openVideoGallery(face.source_videos, url);
+                            });
+                            wrapper.appendChild(img);
+                            wrapper.appendChild(moreBadge);
+                            carousel.appendChild(wrapper);
+                        } else {
+                            carousel.appendChild(img);
+                        }
+                    }
+                });
+
+                tableFragment.appendChild(tr);
+
+                const option = document.createElement('option');
+                option.value = face.id;
+                datalistFragment.appendChild(option);
+            });
+
+            tableBody.appendChild(tableFragment);
+            datalist.appendChild(datalistFragment);
+
+            tableBody.addEventListener('click', e => {
+                const tr = e.target.closest('tr');
+                if (!tr) return;
+
+                const cutoutImg = tr.querySelector('.cutout');
+                const faceId = tr.cells[0].textContent;
+                document.getElementById('faceId').value = faceId;
+                document.getElementById('reportCutout').src = cutoutImg ? cutoutImg.src : '';
+
+                if (!e.target.classList.contains('cutout') && !e.target.closest('.video-carousel')) {
+                    closeAllModals();
+                    reportModal.style.display = 'flex';
+                }
+            });
+        }
+
+        function closeAllModals() {
+            modal.style.display = 'none';
+            videoModal.style.display = 'none';
+            reportModal.style.display = 'none';
+            modalVideo.pause();
+            modalVideo.src = '';
+        }
+
+        // Image Modal
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+
+        function showModal(src) {
+            closeAllModals();
+            modal.style.display = 'flex';
+            modalImg.src = src;
+        }
+
+        document.getElementById('closeImage').onclick = () => modal.style.display = 'none';
+        modal.onclick = e => { if (e.target === modal) modal.style.display = 'none'; }
+
+        // Video Modal
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const videoThumbnails = document.getElementById('videoThumbnails');
+
+        function openVideoGallery(videos, currentUrl) {
+            closeAllModals();
+            modalVideo.src = currentUrl;
+            videoThumbnails.innerHTML = '';
+
+            videos.forEach(url => {
+                const yt = getYouTubeThumbnail(url);
+                if (!yt) return;
+                const thumb = document.createElement('img');
+                thumb.src = yt.thumb;
+                thumb.style.height = '50px';
+                thumb.style.cursor = 'pointer';
+                thumb.addEventListener('click', () => {
+                    modalVideo.src = url;
+                    modalVideo.play();
+                });
+                videoThumbnails.appendChild(thumb);
+            });
+
+            videoModal.style.display = 'flex';
+        }
+
+        document.getElementById('closeVideo').onclick = () => closeAllModals();
+        videoModal.onclick = e => { if (e.target === videoModal) closeAllModals(); }
+
+        // Report Modal
+        const reportModal = document.getElementById('reportModal');
+        document.getElementById('reportBtn').onclick = () => {
+            closeAllModals();
+            reportModal.style.display = 'flex';
+        }
+        document.getElementById('closeReport').onclick = () => reportModal.style.display = 'none';
+        reportModal.onclick = e => { if (e.target === reportModal) reportModal.style.display = 'none'; }
+
+        // Search
+        document.getElementById('searchInput').addEventListener('input', e => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('#tableBody tr').forEach(tr => {
+                tr.style.display = tr.textContent.toLowerCase().includes(term) ? '' : 'none';
+            });
+        });
+
+        // Report form submission
+        document.getElementById('reportForm').addEventListener('submit', async e => {
+            e.preventDefault();
+            const faceId = document.getElementById('faceId').value;
+            const issueType = document.getElementById('issueType').value;
+            const comments = document.getElementById('comments').value;
+            const cutoutUrl = document.getElementById('reportCutout').src;
+
+            const webhookUrl = 'https://discord.com/api/webhooks/1437190866673471699/nLLJUt_wNG7boLg2lLelr3tBOc_Onfw5Prvun4womTfKk5wkukVuC8G8-5xc_4yM09sU';
+
+            const payload = {
+                embeds: [{
+                    title: 'Face Data Report',
+                    color: 16711680,
+                    fields: [
+                        { name: 'Face ID', value: faceId, inline: true },
+                        { name: 'Issue Type', value: issueType, inline: true },
+                        { name: 'Additional Comments', value: comments || 'None' }
+                    ],
+                    image: { url: cutoutUrl || '' },
+                    timestamp: new Date()
+                }]
+            };
+
+            try {
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                alert('Report submitted successfully!');
+                reportModal.style.display = 'none';
+                document.getElementById('reportForm').reset();
+                document.getElementById('reportCutout').src = '';
+            } catch (err) {
+                alert('Error sending report.');
+                console.error(err);
+            }
+        });
+
+        loadData();
+    </script>
+</body>
+
+</html>

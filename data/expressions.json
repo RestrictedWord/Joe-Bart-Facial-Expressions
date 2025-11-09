@@ -1,0 +1,356 @@
+{
+    "faces": [
+        {
+            "id": "face_001",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "furrowed",
+                "eyes": "looking to the side",
+                "mouth": "slightly pursed"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=5OzElg2Vgio"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_001_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_002",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "slightly furrowed",
+                "eyes": "covered",
+                "mouth": "slightly pursed"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=YRcA8Wh9pGw&t"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_001_expr_puzzled_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_003",
+            "expression_id": "expr_surprised",
+            "features": {
+                "eyebrows": "slightly raised",
+                "eyes": "wide",
+                "mouth": "open"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=XyRhG1nDjko"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_003_expr_surprised_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_004",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "Furrowed, down",
+                "eyes": "Wide, intense",
+                "mouth": "Tense, straight"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=yQw0OwqAw6Y&t"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_004_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_005",
+            "expression_id": "expr_surprised",
+            "features": {
+                "eyebrows": "Raised",
+                "eyes": "Wide open",
+                "mouth": "Wide open"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=FieNjtXR1LY"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_005_expr_surprised_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_006",
+            "expression_id": "expr_happy",
+            "features": {
+                "eyebrows": "neutral",
+                "eyes": "wide-open",
+                "mouth": "open smirk"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=G1Z6J5sdyVI"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_006_expr_happy_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_007",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "furrowed",
+                "eyes": "wide",
+                "mouth": "closed"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=5ha3eoxlrR4"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_007_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_008",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "furrowed",
+                "eyes": "wide",
+                "mouth": "slightly open"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=q9PVNtjudi8"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_008_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_009",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "furrowed",
+                "eyes": "sideways gaze",
+                "mouth": "pursed lips"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=taxFndoXgMk&t"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_009_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_010",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "furrowed, raised",
+                "eyes": "wide, averted",
+                "mouth": "slightly parted"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=cunsD6-X5Sg&t"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_010_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_011",
+            "expression_id": "expr_happy",
+            "features": {
+                "eyebrows": "furrowed, tense",
+                "eyes": "squinted, scrunched",
+                "mouth": "wide open, laughing"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=8abbRGKzOQM"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_011_expr_happy_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_012",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "furrowed",
+                "eyes": "intense",
+                "mouth": "straight"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=dy1awOuXvhs"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_012_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_013",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "Furrowed",
+                "eyes": "Side-glance",
+                "mouth": "Closed"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=JsWSYoUmN1w&t"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_013_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_014",
+            "expression_id": "expr_happy",
+            "features": {
+                "eyebrows": "Normal",
+                "eyes": "Smiling",
+                "mouth": "Wide grin"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=z-zbrFaZx0I",
+                "https://www.youtube.com/watch?v=rmJpvkiwFAA"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_014_expr_happy_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_015",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "furrowed",
+                "eyes": "wide",
+                "mouth": "slightly open"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=aTCRsZrHLbk"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_015_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_016",
+            "expression_id": "expr_surprised",
+            "features": {
+                "eyebrows": "Raised",
+                "eyes": "Wide open",
+                "mouth": "Wide open"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=rQx9B1HhmJM"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_016_expr_surprised_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_017",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "Furrowed",
+                "eyes": "Wide",
+                "mouth": "Open"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=3Q5cVKHqdIU"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_017_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_018",
+            "expression_id": "expr_surprised",
+            "features": {
+                "eyebrows": "raised",
+                "eyes": "wide open",
+                "mouth": "slack"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=DQACBQajxMQ"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_018_expr_surprised_cutout.png"
+                }
+            ]
+        }
+    ],
+    "expressions": [
+        {
+            "id": "expr_confused",
+            "label": "Confused",
+            "description": "Uncertain, skeptical, puzzled."
+        },
+        {
+            "id": "expr_happy",
+            "label": "Happy",
+            "description": "Joyful, smiling, pleased, excitement."
+        },
+        {
+            "id": "expr_sad",
+            "label": "Sad",
+            "description": "Upset, downcast, or sorrowful."
+        },
+        {
+            "id": "expr_angry",
+            "label": "Angry",
+            "description": "Annoyed, furious, or displeased."
+        },
+        {
+            "id": "expr_surprised",
+            "label": "Surprised",
+            "description": "Shocked, astonished, or taken aback."
+        }
+    ]
+}
