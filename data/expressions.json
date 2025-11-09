@@ -225,7 +225,8 @@
                 "mouth": "Closed"
             },
             "source_videos": [
-                "https://www.youtube.com/watch?v=JsWSYoUmN1w&t"
+                "https://www.youtube.com/watch?v=JsWSYoUmN1w&t",
+                "https://www.youtube.com/watch?v=GDg-yDdTeIw&pp"
             ],
             "images": [
                 {
@@ -322,6 +323,60 @@
                 {
                     "type": "cutout",
                     "path": "images/cutouts/face_018_expr_surprised_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_019",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "furrowed",
+                "eyes": "narrowed",
+                "mouth": "downturned"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=stVCKwo4jD8"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_019_expr_confused_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_020",
+            "expression_id": "expr_happy",
+            "features": {
+                "eyebrows": "furrowed",
+                "eyes": "straining",
+                "mouth": "wide open, laughing"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=IVtf6BnzwD4"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_020_expr_happy_cutout.png"
+                }
+            ]
+        },
+        {
+            "id": "face_021",
+            "expression_id": "expr_confused",
+            "features": {
+                "eyebrows": "slightly furrowed",
+                "eyes": "wide, side-glance",
+                "mouth": "neutral"
+            },
+            "source_videos": [
+                "https://www.youtube.com/watch?v=vs-gODCvGtA&t"
+            ],
+            "images": [
+                {
+                    "type": "cutout",
+                    "path": "images/cutouts/face_021_expr_confused_cutout.png"
                 }
             ]
         }
