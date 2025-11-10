@@ -16,7 +16,9 @@ h1 {
     margin-bottom: 10px;
     margin-top: 0;
 }
-
+h2{
+    font-size: 1rem;
+}
 h2 a:hover {
     font-size: 0;
 }
@@ -83,10 +85,16 @@ button {
 }
 
 table {
+    position: relative;
     width: 100%;
     border-collapse: collapse;
     background: #1a1a1a;
     margin-top: 20px;
+}
+
+thread {
+    position: sticky;
+    top: 0;
 }
 
 th,

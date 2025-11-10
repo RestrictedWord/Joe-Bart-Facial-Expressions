@@ -1,4 +1,4 @@
-const imageModal = document.getElementById('imageModal');
+const imageModal = document.getElementById('imageMsh');
 const modalImg = document.getElementById('modalImg');
 const videoModal = document.getElementById('videoModal');
 const modalVideo = document.getElementById('modalVideo');
@@ -157,7 +157,7 @@ document.getElementById('reportForm').addEventListener('submit', async e => {
             timestamp: new Date()
         }]
     };
-
+    // Don't abuse me; I'm all shy and vulnerable. 😳
     await fetch('https://discord.com/api/webhooks/1437190866673471699/nLLJUt_wNG7boLg2lLelr3tBOc_Onfw5Prvun4womTfKk5wkukVuC8G8-5xc_4yM09sU', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
     });
@@ -189,4 +189,4 @@ document.getElementById('tableBody').addEventListener('click', e => {
     reportModal.style.display = 'flex';
 });
 
-loadData();
+loadData();shsh
