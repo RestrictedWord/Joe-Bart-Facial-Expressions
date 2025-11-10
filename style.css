@@ -1,248 +1,256 @@
-  :root {
-      --blurple: #5865F2;
-      --mid-purple: #7B61FF;
-      --pink: #FF6EC7;
-      --aqua: #32F4FF;
-      --speed: 8s;
-      --sheen-speed: 3.5s;
-  }
+:root {
+    --blurple: #5865F2;
+    --mid-purple: #7B61FF;
+    --pink: #FF6EC7;
+    --aqua: #32F4FF;
+}
 
-  body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-  }
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #e8e8e8;
+    margin: 0;
+}
 
-  h1 {
-      margin-bottom: 10px;
-      margin-top: 0;
-  }
+h1 {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
 
-  h2 a:hover {
-      font-size: 0;
-  }
+h2 a:hover {
+    font-size: 0;
+}
 
-  h2 a::before {
-      content: "@restrictedword on discord :P";
-      font-size: 0;
-  }
+h2 a::before {
+    content: "@restrictedword on discord :P";
+    font-size: 0;
+}
 
-  h2 a:hover:before {
-      font-size: 1.5rem !important;
-  }
+h2 a:hover:before {
+    font-size: 1.5rem !important;
+}
 
-  h2 a {
-      display: inline-block;
-      font-weight: 800;
-      background: linear-gradient(270deg,
-              var(--blurple),
-              var(--mid-purple),
-              var(--pink),
-              var(--aqua),
-              var(--blurple));
-      background-size: 800% 800%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-  }
+h2 a {
+    display: inline-block;
+    font-weight: 800;
+    background: linear-gradient(270deg,
+            var(--blurple),
+            var(--mid-purple),
+            var(--pink),
+            var(--aqua),
+            var(--blurple));
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
 
-  p {
-      margin-bottom: 0;
-  }
+p {
+    margin-bottom: 0;
+}
 
-  p+span {
-      font-size: 0.375rem;
-      color: #ababab;
-  }
+p+span {
+    font-size: 0.375rem;
+    color: #777;
+}
 
-  input,
-  textarea,
-  select,
-  button {
-      margin: 5px 0;
-      padding: 8px;
-      width: 100%;
-      max-width: 500px;
-      box-sizing: border-box;
-  }
+input,
+textarea,
+select,
+button {
+    margin: 5px 0;
+    padding: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    background: #222;
+    border: 1px solid #555;
+    color: #eee;
+}
 
-  button {
-      cursor: pointer;
-  }
+button {
+    cursor: pointer;
+    background: #333;
+    border: 1px solid #555;
+}
 
-  .controls {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-  }
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
 
-  table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      margin-top: 20px;
-  }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a1a;
+    margin-top: 20px;
+}
 
-  th,
-  td {
-      padding: 8px;
-      border: 1px solid #ddd;
-      text-align: left;
-      vertical-align: top;
-  }
+th,
+td {
+    padding: 8px;
+    border: 1px solid #333;
+    text-align: left;
+    vertical-align: top;
+}
 
-  th {
-      background: #333;
-      color: #fff;
-  }
+th {
+    background: #e8e8e8;
+    color: #000;
+}
 
-  tr:hover {
-      background-color: #eef;
-      cursor: pointer;
-  }
+tr:hover {
+    background-color: #222;
+    cursor: pointer;
+}
 
-  .cutout {
-      max-width: 120px;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      transition: transform 0.2s, border-color 0.2s;
-  }
+.cutout {
+    max-width: 120px;
+    cursor: pointer;
+    border: 1px solid #555;
+    transition: transform 0.2s, border-color 0.2s;
+}
 
-  .cutout:hover {
-      transform: scale(1.05);
-      border-color: #007bff;
-  }
+.cutout:hover {
+    transform: scale(1.05);
+    border-color: var(--blurple);
+}
 
-  .video-carousel {
-      display: flex;
-      gap: 5px;
-      overflow-x: auto;
-      max-width: 300px;
-      scroll-behavior: smooth;
-  }
+.video-carousel {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    max-width: 300px;
+    scroll-behavior: smooth;
+}
 
-  .video-carousel img {
-      cursor: pointer;
-      max-height: 60px;
-      border: 1px solid #ccc;
-  }
+.video-carousel img {
+    cursor: pointer;
+    max-height: 60px;
+    border: 1px solid #444;
+}
 
-  .video-wrapper {
-      position: relative;
-      display: inline-block;
-  }
+.video-wrapper {
+    position: relative;
+    display: inline-block;
+}
 
-  .video-badge {
-      font-size: 0.8rem;
-      background: #333;
-      color: #fff;
-      padding: 2px 4px;
-      border-radius: 4px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      cursor: pointer;
-  }
+.video-badge {
+    font-size: 0.8rem;
+    background: #eee;
+    color: #111;
+    padding: 2px 4px;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
 
-  .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
-      align-items: center;
-      justify-content: center;
-  }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+}
 
-  .modal-content {
-      display: inline-block;
-      background: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      position: relative;
-      max-width: 95%;
-      max-height: 95%;
-  }
+.modal-content {
+    display: inline-block;
+    background: #1a1a1a;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+    max-width: 95%;
+    max-height: 95%;
+    border: 1px solid #444;
+}
 
-  .modal-content img,
-  .modal-content video {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      max-height: 80vh;
-      margin: 0 auto;
-  }
+.modal-content img,
+.modal-content video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh;
+    margin: 0 auto;
+}
 
-  .close {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      color: #000;
-      font-size: 30px;
-      cursor: pointer;
-  }
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
 
-  .modal form {
-      display: flex;
-      flex-direction: column;
-  }
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
 
-  .modal label {
-      margin-top: 10px;
-  }
+.modal label {
+    margin-top: 10px;
+}
 
-  @media (max-width: 600px) {
-      .controls {
-          flex-direction: column;
-      }
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column;
+    }
 
-      .video-carousel {
-          max-width: 100%;
-      }
-  }
+    .video-carousel {
+        max-width: 100%;
+    }
+}
 
-  header {
-      position: relative;
-      padding: 20px;
-  }
+@media (max-width: 950px) {
+    .twitch-player {
+        display: none;
+    }
+}
 
-  header>* {
-      position: relative;
-      z-index: 1;
-  }
+header {
+    position: relative;
+    padding: 20px;
+}
 
-  header>img {
-      position: absolute;
-      object-fit: cover;
-      width: 100%;
-      height: 180px;
-      top: -10px;
-      left: 0;
-      z-index: 0 !important;
-      -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-      filter: blur(10px);
-  }
+header>* {
+    position: relative;
+    z-index: 1;
+}
 
-  .twitch-player {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-  }
+header>img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 180px;
+    top: -10px;
+    left: 0;
+    z-index: 0 !important;
+    filter: blur(10px);
+}
 
-  .twitch-player iframe {
-      aspect-ratio: 16/9;
-      width: 400px;
-      border-radius: 20px;
-      overflow: hidden;
-  }
+.twitch-player {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 
-  .btn-report {
-      width: fit-content;
-  }
+.twitch-player iframe {
+    aspect-ratio: 16/9;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.btn-report {
+    width: fit-content;
+}
