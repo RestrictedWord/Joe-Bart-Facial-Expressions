@@ -14,13 +14,15 @@
 <body>
     <header>
         <h1>Joe Bart Face Expressions <strong>(WIP)</strong></h1>
+        <h2>by: <a href="https://discord.com/users/504881797427888138" target="_blank" class="glow">Word</a></h2>
         <p>This data is AI-generated. If you notice any inaccuracies, please report them. :)</p>
         <span>I'll update when I feel like it.</span>
 
         <div class="controls">
             <input type="text" id="searchInput" placeholder="Search by face ID, expression, or feature..." />
-            <button id="reportBtn">Report Incorrect Data</button>
+            <button id="reportBtn" class="btn-report">Report Incorrect Data</button>
         </div>
+        <div id="twitch-embed" class="twitch-player"></div>
         <img src="https://yt3.googleusercontent.com/8vsKtRillaQeMF-8SlC6ts0z0qs2LUyHX_-qAMKATlTQWmH3sHL7-ErnQk3s49mXFN6MPsQC1g=w2120-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj"
             alt="joebart_banner">
     </header>
@@ -84,7 +86,14 @@
             </form>
         </div>
     </div>
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 
+    <!-- Create a Twitch.Player object. This will render within the placeholder div -->
+    <script type="text/javascript">
+        new Twitch.Player("twitch-embed", {
+            channel: "joe_bartolozzi"
+        });
+    </script>
     <script>
         const imageModal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
